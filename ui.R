@@ -1,15 +1,13 @@
 library(shinydashboard)
 
-color_skin <- 'yellow'
-
 task_menu <- dropdownMenu(
     type = "tasks"
   , badgeStatus = "success"
   , taskItem(
-        value = 17
-      , color = "green"
-      , "Storage used"
-    )
+      value = 17
+    , color = "green"
+    , "Storage used"
+  )
   , taskItem(
       value = 17
     , color = "orange"
@@ -24,9 +22,9 @@ header <- dashboardHeader(
 
 sidebar <- dashboardSidebar(
   sidebarMenu(
-    menuItem("Pix", tabName = "pix", icon = icon("images")),
-    menuItem("Analytix", tabName = "analytix", icon = icon("chart-line")),
-    menuItem("Properties", tabName = 'properties', icon = icon("cog"))
+      menuItem("Pix", tabName = "pix", icon = icon("images"))
+    , menuItem("Analytix", tabName = "analytix", icon = icon("chart-line"))
+    , menuItem("Properties", tabName = 'properties', icon = icon("cog"))
   )
 )
 
@@ -44,7 +42,7 @@ body <- dashboardBody(
       , h2('We can plot color by date')
     ),
     tabItem(
-        tabName = 'properties'
+      tabName = 'properties'
     )
   )
 )
@@ -53,5 +51,4 @@ ui <- dashboardPage(
     header
   , sidebar
   , body
-  , skin = color_skin
 )
