@@ -1,4 +1,5 @@
 library(shinydashboard)
+source('tab_pix.R')
 
 task_menu <- dropdownMenu(
     type = "tasks"
@@ -22,7 +23,7 @@ header <- dashboardHeader(
 
 sidebar <- dashboardSidebar(
   sidebarMenu(
-      menuItem("Pix", tabName = "pix", icon = icon("images"))
+      mnu_pix
     , menuItem("Analytix", tabName = "analytix", icon = icon("chart-line"))
     , menuItem("Properties", tabName = 'properties', icon = icon("cog"))
   )
@@ -30,18 +31,13 @@ sidebar <- dashboardSidebar(
 
 body <- dashboardBody(
   tabItems(
-    tabItem(
-        tabName = 'pix'
-      , h1('Pictures go here')
-      , box(imageOutput("image1", height = 300))
-      , box(imageOutput("image2", height = 300))
-    ),
-    tabItem(
-        tabName = 'analytix'
-      , h2('We can plot # of pictures by date')
-      , h2('We can plot color by date')
-    ),
-    tabItem(
+      tab_pix
+    , tabItem(
+          tabName = 'analytix'
+        , h2('We can plot # of pictures by date')
+        , h2('We can plot color by date')
+      )
+    , tabItem(
       tabName = 'properties'
     )
   )
